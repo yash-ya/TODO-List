@@ -11,38 +11,81 @@ This is a simple Todo List API built with Django.
 
 ## Endpoints
 
-### Tasks
+## TODO-List API
 
-- **List Tasks**: `GET /api/tasks/`
-- Retrieve a list of all tasks.
+This API provides endpoints to manage tasks.
 
-- **Create Task**: `POST /api/tasks/`
-- Create a new task.
-- Example Request Body:
+### Endpoints:
 
-```
-{
-    "title": "Task 1",
-    "description": "Description of Task 1"
-}
-```
+1. **List and Create Tasks**
 
-- **Retrieve Task**: `GET /api/tasks/<task_id>/`
-- Retrieve details of a specific task.
+   - **URL**: `/tasks/`
+   - **Method**: `GET` (List), `POST` (Create)
+   - **Description**:
+     - `GET`: Retrieves a list of all tasks.
+     - `POST`: Creates a new task.
+   - **Response Format**: JSON
+   - **Authentication**: Not required
 
-- **Update Task**: `PUT /api/tasks/<task_id>/`
-- Update details of a specific task.
-- Example Request Body:
+2. **Retrieve, Update, and Delete Task by ID**
 
-```
-{
-    "title": "Updated Task 1",
-    "description": "Updated description of Task 1"
-}
-```
+   - **URL**: `/tasks/<int:pk>/`
+   - **Method**: `GET` (Retrieve), `PUT` (Update), `DELETE` (Delete)
+   - **Description**:
+     - `GET`: Retrieves details of a specific task identified by its ID.
+     - `PUT`: Updates details of a specific task identified by its ID.
+     - `DELETE`: Deletes a specific task identified by its ID.
+   - **Response Format**: JSON
+   - **Authentication**: Not required
 
-- **Delete Task**: `DELETE /api/tasks/<task_id>/`
-- Delete a specific task.
+3. **Get All Tasks (Custom Endpoint)**
+
+   - **URL**: `/get_all/`
+   - **Method**: `GET`
+   - **Description**: Retrieves all tasks.
+   - **Response Format**: JSON
+   - **Authentication**: Not required
+
+4. **Add Task (Custom Endpoint)**
+
+   - **URL**: `/add/`
+   - **Method**: `POST`
+   - **Description**: Adds a new task.
+   - **Request Body Format**: JSON
+   - **Response Format**: JSON
+   - **Authentication**: Not required
+
+5. **Get Task by ID (Custom Endpoint)**
+
+   - **URL**: `/get/<int:id>/`
+   - **Method**: `GET`
+   - **Description**: Retrieves details of a specific task identified by its ID.
+   - **Response Format**: JSON
+   - **Authentication**: Not required
+
+6. **Update Task by ID (Custom Endpoint)**
+
+   - **URL**: `/update/<int:id>/`
+   - **Method**: `PUT`
+   - **Description**: Updates details of a specific task identified by its ID.
+   - **Request Body Format**: JSON
+   - **Response Format**: JSON
+   - **Authentication**: Not required
+
+7. **Delete Task by ID (Custom Endpoint)**
+   - **URL**: `/delete/<int:id>/`
+   - **Method**: `DELETE`
+   - **Description**: Deletes a specific task identified by its ID.
+   - **Response Format**: JSON
+   - **Authentication**: Not required
+
+### Authentication:
+
+Authentication is not required to access any of the endpoints.
+
+### Error Handling:
+
+The API returns appropriate error responses with status codes and error messages in case of invalid requests or server errors.
 
 ## Contributing
 
